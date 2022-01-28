@@ -1,22 +1,27 @@
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import {Container} from './components/styles/Container.styled';
+import Header from './components/Header'
+import GlobalStyles from "./components/styles/Global";
+
+const theme = {
+  colors: {
+    header: 'lightblue',
+    body: 'darkblue',
+    footer: '#003333'
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Header />
+        <Container>
+          <h1>Hello World</h1>
+        </Container>
+      </>
+    </ThemeProvider>
   );
 }
 
